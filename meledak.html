@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ledakan Cinta 💌</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        background-color: #111;
+        overflow: hidden;
+        font-family: sans-serif;
+        position: relative;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+        transition: opacity 0.5s ease;
+      }
+
+      .overlay.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .envelope {
+        font-size: 70px;
+        cursor: pointer;
+        transition: transform 0.2s;
+        position: relative;
+        z-index: 6;
+      }
+
+      .envelope:hover {
+        transform: scale(1.1);
+      }
+
+      .particle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #fff;
+        opacity: 1;
+        transform: translate(0, 0);
+        animation: explode 1s ease-out forwards;
+      }
+
+      @keyframes explode {
+        0% {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(var(--x), var(--y));
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Overlay with Envelope -->
+    <div class="overlay" id="overlay">
+      <div class="envelope" onclick="explode()">💌</div>
+    </div>
+
+    <script>
+      function explode() {
+        const overlay = document.getElementById("overlay");
+        overlay.classList.add("hide"); // Hilangkan overlay
+        overlay.querySelector(".envelope").style.display = "none"; // Sembunyikan amplop
+
+        for (let i = 0; i < 40; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          const size = Math.random() * 8 + 4;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+
+          const x = (Math.random() - 0.5) * 400 + "px";
+          const y = (Math.random() - 0.5) * 400 + "px";
+          particle.style.setProperty("--x", x);
+          particle.style.setProperty("--y", y);
+
+          document.body.appendChild(particle);
+
+          setTimeout(() => {
+            particle.remove();
+          }, 1000);
+        }
+      }
+    </script>
+  </body>
+</html>
