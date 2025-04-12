@@ -5,20 +5,74 @@
 }
 
 .container {
+  flex-direction: column;
+  display: flex;
+  justify-content: center; /* center horizontal */
+  align-items: center; /* center vertical */
+  width: 200px;
+  height: 300px;
+  /* opsional: kasih background biar kelihatan */
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* penuh layar */
+  /* biar kelihatan */
+}
+.name-orang {
+  margin-top: 80px;
+  margin-left: 60px;
+  position: relative;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+
+  color: #fff;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px #ea80b0;
+  color: #6b75cd;
+
+  transform: translateY(-100%) rotateZ(-10deg);
+  font-family: "Dosis", sans-serif;
+  text-shadow: 0 0 10px #fff;
+  letter-spacing: 2px;
+}
+.container2 {
   display: flex;
   justify-content: center; /* center horizontal */
   align-items: center; /* center vertikal */
   height: 100vh; /* atau tinggi yang kamu mau */
 }
 
-.name-orang {
-  position: absolute;
-  top: 50%;
-  left: 45%;
+.name-orang2 {
+  position: relative;
+  white-space: nowrap;
   transform: translate(-50%, -50%);
-
+  margin-left: 80px;
   color: #fff;
-  font-size: 3rem;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px #ea80b0;
+  color: #6b75cd;
+
+  transform: translateY(-100%) rotateZ(-10deg);
+  font-family: "Dosis", sans-serif;
+  text-shadow: 0 0 10px #fff;
+  letter-spacing: 2px;
+}
+.container3 {
+  display: flex;
+  justify-content: center; /* center horizontal */
+  align-items: center; /* center vertikal */
+  height: 100vh; /* atau tinggi yang kamu mau */
+}
+
+.name-orang3 {
+  position: relative;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  margin-left: 50px;
+  color: #fff;
+  font-size: 2.5rem;
   text-shadow: 0 0 10px #ea80b0;
   color: #6b75cd;
 
